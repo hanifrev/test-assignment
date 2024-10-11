@@ -22,7 +22,11 @@ async function fetcher<Res, Req = never>({
   try {
     const apiURL = isExternal
       ? process.env.NEXT_PUBLIC_API_URL
-      : `${process.env.NEXT_PUBLIC_URL}/api`;
+      : `${process.env.NEXT_PUBLIC_BASE_API_URL}/api`;
+
+    if (!apiURL) {
+      throw new Error('API URL is missing.'); // Throw an error if API URL is missing
+    }
 
     const url = new URL(`${apiURL}${path}`);
 

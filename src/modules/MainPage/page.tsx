@@ -7,6 +7,7 @@ import Image from 'next/image';
 import React from 'react';
 import { mainPageType } from './types/mainPage.models';
 import InfoCard from '@/common/components/atoms/InfoCard';
+import CardSwipeAnimation from '@/common/components/molecules/CardSwipeAnimation';
 
 interface MainProps {
   data: mainPageType;
@@ -18,7 +19,7 @@ const MainPage: React.FC<MainProps> = ({ data }) => {
 
   return (
     <div className="z-50 mx-auto side-container pt-14 xl:pt-[100px] pb-[60px] xl:pb-[108px] xl:!px-0 xl:w-[1200px]">
-      <div className="flex flex-col lg:flex-row gap-9 ">
+      <div className="flex flex-col xl:flex-row gap-9 ">
         <div className="flex flex-col gap-4 lg:w-[581px]">
           <Tooltips
             position="left"
@@ -53,7 +54,7 @@ const MainPage: React.FC<MainProps> = ({ data }) => {
             })}
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 mx-auto">
           <Tooltips
             position="center"
             text={
@@ -65,10 +66,14 @@ const MainPage: React.FC<MainProps> = ({ data }) => {
             textColor="!text-[#00c595]"
             background="!bg-[#e9f7ef]"
             arrowColor="#e9f7ef"
+            className="mx-auto xl:transform xl:translate-y-[-44px]"
           />
-          <div>animation</div>
+          <div>
+            <CardSwipeAnimation />
+            {/* <HeroCard /> */}
+          </div>
           <CheckboxGroup />
-          <div className="text-[#faff23] xl:hidden text-base font-black underline leading-normal">
+          <div className="text-[#faff23] xl:hidden text-base font-black underline leading-normal sm:mx-auto">
             {theData.question}
           </div>
         </div>

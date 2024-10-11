@@ -8,7 +8,7 @@ const CheckboxGroup: React.FC = () => {
   const [checked4, setChecked4] = useState(false);
 
   return (
-    <div className="flex xl:hidden flex-row gap-3 flex-wrap w-[300px]">
+    <div className="flex xl:hidden flex-row gap-3 flex-wrap w-[300px] pt-[50px] sm:mx-auto">
       <div className="flex gap-3">
         <Checkbox
           checked={checked1}

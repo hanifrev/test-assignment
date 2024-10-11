@@ -8,6 +8,7 @@ interface TooltipProps {
   background: string;
   textColor: string;
   arrowColor: string;
+  secondaryArrow?: string;
 }
 
 const Tooltips: React.FC<TooltipProps> = ({
@@ -16,9 +17,10 @@ const Tooltips: React.FC<TooltipProps> = ({
   background,
   textColor,
   arrowColor,
+  secondaryArrow,
 }) => {
   return (
-    <div className="flex flex-col w-max">
+    <div className="flex flex-col w-max animate-fadeIn delay-[300ms]">
       <TooltipBox text={text} background={background} textColor={textColor} />
       <span
         className={`${position == 'left' && 'pl-[14px] -mt-0.5'} ${position == 'center' && 'mx-auto -mt-0.5'} `}

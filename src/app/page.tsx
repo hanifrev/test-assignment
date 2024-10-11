@@ -1,13 +1,14 @@
 import fetcher from '@/common/utils/fetcher';
 import MainPage from '@/modules/MainPage/page';
+import { mainPageType } from '@/modules/MainPage/types/mainPage.models';
 
 export default async function Home() {
-  const getData = await fetcher<any, any>({
-    path: '/users',
-    isExternal: true,
+  const getData = await fetcher<mainPageType>({
+    path: '/mainPage',
+    isExternal: false,
   });
 
   console.log(getData);
 
-  return <MainPage />;
+  return <MainPage data={getData} />;
 }

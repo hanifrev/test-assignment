@@ -25,7 +25,7 @@ const cardsData = [
   },
 ];
 
-const CardSlider: React.FC = () => {
+const BottomCardSlider: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const CardSlider: React.FC = () => {
   }, []);
 
   return (
-    <div className="slider-container overflow-hidden relative w-auto">
+    <div className="slider-container overflow-hidden relative w-auto animate-fadeIn delay-[500ms]">
       <motion.div
         className="cards-wrapper flex"
         style={{
@@ -61,4 +61,4 @@ const CardSlider: React.FC = () => {
   );
 };
 
-export default CardSlider;
+export default BottomCardSlider;

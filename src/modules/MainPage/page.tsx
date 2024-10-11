@@ -1,14 +1,21 @@
 'use client';
 
-import Checkbox from '@/common/components/atoms/Checkbox';
-import SmallCardAnimation from '@/common/components/atoms/SmallCardAnimation';
+import BottomCardSlider from '@/common/components/molecules/BottomCardSlider';
 import CheckboxGroup from '@/common/components/molecules/CheckboxGroup';
-import CardSlider from '@/common/components/molecules/SliderAnimation';
 import Tooltips from '@/common/components/molecules/Tooltips';
 import Image from 'next/image';
 import React from 'react';
+import { mainPageType } from './types/mainPage.models';
+import InfoCard from '@/common/components/atoms/InfoCard';
 
-const MainPage = () => {
+interface MainProps {
+  data: mainPageType;
+}
+
+const MainPage: React.FC<MainProps> = ({ data }) => {
+  console.log(data);
+  const theData = data && data;
+
   return (
     <div className="z-50 mx-auto side-container pt-14 xl:pt-[100px] pb-[60px] xl:pb-[108px] xl:!px-0 xl:w-[1200px]">
       <div className="flex flex-col lg:flex-row gap-9 ">
@@ -21,16 +28,30 @@ const MainPage = () => {
             // arrowColor="#8BC4FF"
             arrowColor="#FFF"
           />
-          <div className="text-white font-black text-4xl leading-[130%]">
-            최고의 실력을 가진 외국인 인재를 찾고 계신가요?
+          {/* title */}
+          <div className="text-white font-black text-4xl leading-[130%] animate-fadeInUp">
+            {theData.title}
           </div>
-          <div className="text-[#FFFFFFCC] font-black text-lg leading-[27px]">
-            법률 및 인사관리 부담없이 1주일 이내에 원격으로 채용해보세요.
+          {/* description */}
+          <div className="text-[#FFFFFFCC] font-black text-lg leading-[27px] animate-fadeInUp delay-[300ms]">
+            {theData.description}
           </div>
           <div className="text-[#FFFFFFCC] hidden xl:block pt-2 text-base font-black underline leading-normal">
-            개발자가 필요하신가요?
+            {theData.question}
           </div>
-          <div className="hidden xl:flex flex-row gap-12 justify-between"></div>
+          {/* 3 small info card desktop only*/}
+          <div className="hidden xl:flex flex-row gap-12 justify-between pt-[60px] animate-fadeIn">
+            {/* CHANGE THIS INTO INFO CARD COMPONENT LATER WHEN IMPLEMENTING API */}
+            {theData.infoCard.map((item: mainPageType, index: number) => {
+              return (
+                <InfoCard
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                />
+              );
+            })}
+          </div>
         </div>
         <div className="flex flex-col gap-4">
           <Tooltips
@@ -48,12 +69,12 @@ const MainPage = () => {
           <div>animation</div>
           <CheckboxGroup />
           <div className="text-[#faff23] xl:hidden text-base font-black underline leading-normal">
-            개발자가 필요하신가요?
+            {theData.question}
           </div>
         </div>
       </div>
       <div className="hidden pt-[60px] xl:block w-[1200px] mx-auto">
-        <CardSlider />
+        <BottomCardSlider />
       </div>
     </div>
   );

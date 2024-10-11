@@ -41,12 +41,13 @@ const Footer = () => {
           </div>
           <div>
             <div className="flex flex-wrap gap-2 justify-between">
-              {footerCard.map((x) => {
+              {footerCard.map((x, index) => {
                 return (
                   <CardFooter
                     logoImg={x.logoImg}
                     text={x.text}
                     text2="바로가기"
+                    key={index}
                   />
                 );
               })}

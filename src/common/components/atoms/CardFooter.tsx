@@ -9,7 +9,7 @@ interface CardProps {
 
 const CardFooter: React.FC<CardProps> = ({ logoImg, text, text2 }) => {
   return (
-    <div className="w-40 xl:w-[187px] h-[163px] xl:h-[142px] p-4 bg-white text-black rounded-xl flex-col justify-between items-start inline-flex">
+    <div className="w-40 xl:w-[187px] h-[163px] xl:h-[142px] p-4 bg-white text-black rounded-xl flex-col justify-between items-start inline-flex hover:bg-slate-100 cursor-pointer">
       <div className="pb-3 ">
         <div className="h-10 p-2 bg-[#eff0f6] rounded-lg flex-col justify-start items-start gap-2.5 inline-flex">
           <Image src={logoImg} alt="logo" width={24} height={24} />

@@ -8,6 +8,7 @@ import React from 'react';
 import { mainPageType } from './types/mainPage.models';
 import InfoCard from '@/common/components/atoms/InfoCard';
 import CardSwipeAnimation from '@/common/components/molecules/CardSwipeAnimation';
+import { useMediaQuery } from 'react-responsive';
 
 interface MainProps {
   data: mainPageType;
@@ -16,19 +17,30 @@ interface MainProps {
 const MainPage: React.FC<MainProps> = ({ data }) => {
   console.log(data);
   const theData = data && data;
+  const isWideViewport = useMediaQuery({ query: '(min-width: 1024px)' });
 
   return (
     <div className="z-50 mx-auto side-container pt-14 xl:pt-[100px] pb-[60px] xl:pb-[108px] xl:!px-0 xl:w-[1200px]">
       <div className="flex flex-col xl:flex-row gap-9 ">
         <div className="flex flex-col gap-4 lg:w-[581px]">
-          <Tooltips
-            position="left"
-            text="풀타임, 파트타임"
-            textColor="!text-white xl:!text-[#40E2E8]"
-            background="bg-[#8BC4FF] xl:bg-white"
-            // arrowColor="#8BC4FF"
-            arrowColor="#FFF"
-          />
+          {isWideViewport ? (
+            <Tooltips
+              position="left"
+              text="풀타임, 파트타임"
+              textColor="!text-[#40E2E8]"
+              background="bg-white"
+              arrowColor="#FFF"
+            />
+          ) : (
+            <Tooltips
+              position="left"
+              text="풀타임, 파트타임"
+              textColor="!text-white "
+              background="bg-[#8BC4FF]"
+              arrowColor="#8BC4FF"
+            />
+          )}
+
           {/* title */}
           <div className="text-white font-black text-4xl leading-[130%] animate-fadeInUp">
             {theData.title}
@@ -70,7 +82,6 @@ const MainPage: React.FC<MainProps> = ({ data }) => {
           />
           <div>
             <CardSwipeAnimation />
-            {/* <HeroCard /> */}
           </div>
           <CheckboxGroup />
           <div className="text-[#faff23] xl:hidden text-base font-black underline leading-normal sm:mx-auto">

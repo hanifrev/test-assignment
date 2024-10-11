@@ -28,7 +28,7 @@ const footerCard = [
 
 const Footer = () => {
   return (
-    <div className="bg-[#FBFBFB] side-container">
+    <div className="bg-[#FBFBFB] side-container z-[9999]">
       <div className=" py-16 w-full xl:w-[1200px] xl:mx-auto flex flex-col  text-[#343741]">
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <div className="pb-[18px]">

@@ -40,7 +40,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="side-container xl:mx-auto bg-transparent">
+    <div className="side-container xl:mx-auto bg-transparent z-[9999]">
       {/* mobile */}
       <div className="flex xl:hidden py-[19px] justify-between w-full">
         <Image src="/logo.svg" alt="logo" width={114} height={21} />

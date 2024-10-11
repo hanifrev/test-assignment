@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import TooltipBox from '../atoms/TooltipBox';
 import ArrowTooltip from '../atoms/ArrowTooltip';
 
-const Tooltips = () => {
+interface TooltipProps {
+  position?: 'left' | 'center';
+  text: string | ReactNode;
+  background: string;
+  textColor: string;
+  arrowColor: string;
+}
+
+const Tooltips: React.FC<TooltipProps> = ({
+  position,
+  text,
+  background,
+  textColor,
+  arrowColor,
+}) => {
   return (
-    <div>
-      <TooltipBox
-        text="풀타임, 파트타임"
-        background="bg-white"
-        textColor="text-[#40E2E8]"
-      />
-      <ArrowTooltip classNames="bg-white" />
+    <div className="flex flex-col w-max">
+      <TooltipBox text={text} background={background} textColor={textColor} />
+      <span
+        className={`${position == 'left' && 'pl-[14px] -mt-0.5'} ${position == 'center' && 'mx-auto -mt-0.5'} `}
+      >
+        <ArrowTooltip color={arrowColor} />
+      </span>
     </div>
   );
 };

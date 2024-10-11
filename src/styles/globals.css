@@ -35,3 +35,15 @@ body {
 .side-container {
   @apply px-4  md:px-7 lg:px-9 xl:px-12 xxl:px-[360px];
 }
+
+.slider-container {
+  position: relative;
+  width: auto;
+  /* height: 200px; */
+  overflow: hidden;
+}
+
+.cards-wrapper {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}

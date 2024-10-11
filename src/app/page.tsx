@@ -1,5 +1,5 @@
 import fetcher from '@/common/utils/fetcher';
-import ExamplePage from '@/modules/ExamplePage/page';
+import MainPage from '@/modules/MainPage/page';
 
 export default async function Home() {
   const getData = await fetcher<any, any>({
@@ -9,5 +9,5 @@ export default async function Home() {
 
   console.log(getData);
 
-  return <ExamplePage />;
+  return <MainPage />;
 }
